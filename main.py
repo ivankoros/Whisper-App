@@ -1,11 +1,11 @@
 import whisper
 import openai
-import os
+import config
 
 model = whisper.load_model("base")
 result = model.transcribe("motivation.mp3")
 
-openai.api_key =os.getenv("OPENAI_API_KEY")
+openai.api_key = config.api_key
 
 response = openai.Completion.create(
     model="text-davinci-003",
